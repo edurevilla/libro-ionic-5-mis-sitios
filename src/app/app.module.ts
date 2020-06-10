@@ -8,6 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalNuevoSitioPageModule } from './modal-nuevo-sitio/modal-nuevo-sitio.module';
 import { ImgService } from './services/img.service';
+import { DbService } from './services/db.service';
+import { IonicStorageModule } from '@ionic/storage';
+import { ModalDetalleSitioPageModule  } from './modal-detalle-sitio/modal-detalle-sitio.module';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,11 +21,14 @@ import { ImgService } from './services/img.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    ModalNuevoSitioPageModule
+    ModalNuevoSitioPageModule,
+    IonicStorageModule.forRoot(),
+    ModalDetalleSitioPageModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ImgService
+    ImgService,
+    DbService 
   ],
   bootstrap: [AppComponent]
 })
